@@ -24,6 +24,6 @@ export const GiftsList = () => {
         <h1>
             Gift
         </h1>
-        return null
+        <GiftsTable gifts={giftsList}/>
     </>;
 }
