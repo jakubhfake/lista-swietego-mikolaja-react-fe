@@ -2,9 +2,9 @@
  "compilerOptions":{
   "baseUrl": ".",
   "paths": {
-   "types":[
+   "types": [
     "../../E4/ListaSwietegoMikolaja/types"
-]
+   ]
   }
  }
 }

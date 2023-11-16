@@ -1,5 +1,6 @@
 import React from "react";
-import {GiftEntity} from "../../types/gifts";
+import { GiftEntity } from "types";
+
 
 interface Props {
     gift: GiftEntity;
