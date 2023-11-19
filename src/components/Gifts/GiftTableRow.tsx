@@ -11,5 +11,8 @@ export const GiftTableRow = (props: Props) => (
         <th>{props.gift.id}</th>
         <td>{props.gift.name}</td>
         <td>{props.gift.count}</td>
+        <td>
+            <a href={"#"}>🗑</a>
+        </td>
     </tr>
 )
