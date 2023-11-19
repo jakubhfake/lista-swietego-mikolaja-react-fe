@@ -17,9 +17,9 @@ export const GiftTableRow = (props: Props) => {
             method: 'DELETE',
         });
         console.log(res);
-        if (res.status === 400 || res.status === 500) {
+        if ([400, 500].includes(res.status)) {
             const error = await res.json();
-            alert(`Error occurred: ${error.message`)
+            alert(`Error occurred: ${error.message}`)
         }
     };
    return ( <tr>
