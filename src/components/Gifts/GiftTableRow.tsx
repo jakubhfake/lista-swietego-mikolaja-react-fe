@@ -13,9 +13,14 @@ export const GiftTableRow = (props: Props) => {
         if (!window.confirm(`Are you sure you want to remove gift: ${props.gift.name}`)) {
             return;
         }
-        await fetch(`http://localhost:3001/gift/${props.gift.id}`, {
+        const res = await fetch(`http://localhost:3001/gift/${props.gift.id}`, {
             method: 'DELETE',
         });
+        console.log(res);
+        if (res.status === 400 || res.status === 500) {
+            const error = await res.json();
+            alert(`Error occurred: ${error.message`)
+        }
     };
    return ( <tr>
         <th>{props.gift.id}</th>
