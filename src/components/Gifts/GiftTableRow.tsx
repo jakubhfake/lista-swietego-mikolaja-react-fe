@@ -7,6 +7,7 @@ interface Props {
     onGiftsChange: () => void;
 }
 
+// @ToDo Add useState for deleting gift
 export const GiftTableRow = (props: Props) => {
     const deleteGift = async (e: MouseEvent) => {
         e.preventDefault();
