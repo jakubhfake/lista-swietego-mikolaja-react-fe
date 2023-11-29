@@ -12,7 +12,6 @@ export const GiftsList = () => {
             'http://localhost:3001/gift');
         const data = await res.json();
         setGiftsList(data.giftsList);
-        console.log(data);
     };
 
 

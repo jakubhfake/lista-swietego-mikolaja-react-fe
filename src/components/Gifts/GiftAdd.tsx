@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {FormEvent, useState} from "react";
 import { CreateGiftReq } from "types";
 import {LoadingSpinner} from "../common/LoadingSpinner/LoadingSpinner";
+import {GiftEntity} from "../../../../../E4/ListaSwietegoMikolaja/types/gift/gift-entity";
 
-
+// @Todo przenieść do osobnych funkcji zapytania do API
 export const GiftAdd = () => {
     const [form, setForm] = useState<CreateGiftReq>({
         name: '',
@@ -10,10 +11,7 @@ export const GiftAdd = () => {
     });
 
     const [loading, setLoading] = useState<boolean>(false);
-
-    if (loading) {
-        return <LoadingSpinner/>;
-    }
+    const [resultInfo, setResultInfo] = useState<string | null>(null);
 
     const updateForm = (key: string, value: any) => {
         setForm( form => ({
@@ -22,7 +20,42 @@ export const GiftAdd = () => {
         }));
     }
 
-    return <form>
+    const sendForm = async (e: FormEvent) => {
+        e.preventDefault();
+
+        setLoading(true);
+
+        // @Todo made error validation
+        try {
+
+            const res = await fetch('http://localhost:3001/gift', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(form),
+            });
+            const data: GiftEntity = await res.json();
+
+            setResultInfo(`Gift named ${data.name} added with id ${data.id}.`);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (loading) {
+        return <LoadingSpinner/>;
+    }
+
+    if (resultInfo !== null) {
+        return <div>
+            <p>{resultInfo}</p>
+            <button onClick={() => setResultInfo(null)}>Add another one</button>
+        </div>
+
+    }
+
+    return <form onSubmit={sendForm}>
         <p>
             <label>
                 Name: <br/>
@@ -39,10 +72,10 @@ export const GiftAdd = () => {
                 <input
                     type={"number"}
                     value={form.count}
-                    onChange={e => updateForm('count', e.target.value)}
+                    onChange={e => updateForm('count', Number(e.target.value))}
                 />
             </label>
         </p>
-        <button>Add</button>
+        <button type={"submit"}>Add</button>
     </form>
 }
