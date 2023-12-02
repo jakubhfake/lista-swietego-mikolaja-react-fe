@@ -6,15 +6,12 @@ import {LoadingSpinner} from "./components/common/LoadingSpinner/LoadingSpinner"
 import {Link, Route, Routes} from "react-router-dom";
 import {TestView} from "./views/TestView";
 import React from "react";
+import {Header} from "./components/Header/Header";
 
 function App() {
   return (
       <>
-          <h1>Santa Gifts App</h1>
-          Menu:
-          <Link to={"/gift"}>Gifts</Link> |
-          <Link to={"/test"}>Test</Link> |
-          <hr/>
+          <Header/>
           <Routes>
               <Route path={"/gift"} element={<GiftsView/>}></Route>
               <Route path={"/test"} element={<TestView/>}></Route>
