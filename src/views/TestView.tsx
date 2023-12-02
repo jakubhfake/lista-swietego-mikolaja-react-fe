@@ -8,6 +8,5 @@ export const TestView = () => (
         <h1>
             Test!
         </h1>
-        <Link to={"/gift"}>Switch to gifts</Link>
     </>
 );

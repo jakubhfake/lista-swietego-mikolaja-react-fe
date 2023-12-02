@@ -7,9 +7,5 @@ export const GiftsView = () => (
     <>
         <GiftsList/>
         <GiftAdd/>
-        <h1>
-            Test!
-        </h1>
-        <Link to={"/test"}>Switch to test</Link>
     </>
 );
