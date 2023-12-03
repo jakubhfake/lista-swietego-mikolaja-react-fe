@@ -7,6 +7,7 @@ import {Link, Route, Routes} from "react-router-dom";
 import {TestView} from "./views/TestView";
 import React from "react";
 import {Header} from "./components/Header/Header";
+import {NotFoundView} from "./views/NotFoundView";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           <Header/>
           <Routes>
               <Route path={"/gift"} element={<GiftsView/>}></Route>
-              <Route path={"/test"} element={<TestView/>}></Route>
+              <Route path={"/test/:testId"} element={<TestView/>}></Route>
+              <Route path={"*"} element={<NotFoundView/>}></Route>
           </Routes>
       </>
   );
