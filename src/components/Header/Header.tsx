@@ -1,4 +1,4 @@
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import React from "react";
 
 export const Header = () => {
@@ -8,7 +8,7 @@ export const Header = () => {
         <h1>Santa Gifts App</h1>
         Menu:
         <NavLink style={colorOfActiveLink} to={"/gift"}>Gifts</NavLink> |
-        <Link to={"/test"}>Test</Link> |
+        <NavLink style={colorOfActiveLink} to={"/test"}>Test</NavLink> |
         <hr/>
     </>
 }
