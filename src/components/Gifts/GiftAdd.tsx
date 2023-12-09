@@ -1,7 +1,6 @@
 import React, {FormEvent, useState} from "react";
-import { CreateGiftReq } from "types";
+import { CreateGiftReq, GiftEntity } from "types";
 import {LoadingSpinner} from "../common/LoadingSpinner/LoadingSpinner";
-import {GiftEntity} from "../../../../../E4/ListaSwietegoMikolaja/types/gift/gift-entity";
 
 // @Todo przenieść do osobnych funkcji zapytania do API
 export const GiftAdd = () => {
