@@ -1,8 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { GetSingleGiftRes } from 'types';
+import {Link, useParams} from "react-router-dom";
 
 export const SingleGiftView = () => {
-    const [giftInfo, setGiftInfo] = useState<GetSingleGiftRes | null>(null)
+    const [giftInfo, setGiftInfo] = useState<GetSingleGiftRes | null>(null);
+    const {giftId} = useParams();
+
+    useEffect(() => {
+        (async  () => {
+
+            //@ToDo make fetch in other file witch errors validation
+            const res = await fetch(`http://localhost:3001/gift/${giftId}`);
+            setGiftInfo(await res.json());
+
+        })();
+
+    }, [])
 
     if (giftInfo === null) {
         return null
@@ -11,5 +24,6 @@ export const SingleGiftView = () => {
     return <>
         <h1>{giftInfo.gift.name}</h1>
         <p>This gift has ID <strong>{giftInfo.gift.id}</strong>. We had <strong>{giftInfo.gift.count}</strong> of this item and <strong>{giftInfo.givenCount}</strong> were already given.</p>
+        <Link to={'/gift'}>Go back to list</Link>
     </>
 };
