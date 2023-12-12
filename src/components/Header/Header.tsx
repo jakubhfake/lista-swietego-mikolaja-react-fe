@@ -8,7 +8,7 @@ export const Header = () => {
         <h1>Santa Gifts App</h1>
         Menu:
         <NavLink style={colorOfActiveLink} to={"/gift"}>Gifts</NavLink> |
-        <NavLink style={colorOfActiveLink} to={""}>Children</NavLink> |
+        <NavLink style={colorOfActiveLink} to={"/child"}>Children</NavLink> |
         <hr/>
     </>
 }
