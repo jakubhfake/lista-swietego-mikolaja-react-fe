@@ -6,18 +6,18 @@ import { ListChildrenRes } from 'types';
 export const ChildrenList = () => {
     const [data, setData] = useState<ListChildrenRes | null>(null);
 
-    const refreshGifts = async () => {
+    const refreshChildren = async () => {
         setData(null);
         const res = await fetch (
-            'http://localhost:3001/chlid');
-        const data = await res.json();
-        setData(data);
+            'http://localhost:3001/child');
+        console.log(res);
+        setData(await res.json());
     };
 
 
 
     useEffect(() => {
-        refreshGifts();
+        refreshChildren();
     }, [])
 
     if (data=== null) {

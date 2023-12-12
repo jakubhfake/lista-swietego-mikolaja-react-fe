@@ -11,35 +11,36 @@ interface Props {
 
 // @ToDo Add useState for deleting child
 export const ChildrenTableRow = (props: Props) => {
-    const deleteGift = async (e: MouseEvent) => {
-        e.preventDefault();
-
-        if (!window.confirm(`Are you sure you want to remove gift name: ${props.gift.name}`)) {
-            return;
-        }
-        const res = await fetch(`http://localhost:3001/gift/${props.gift.id}`, {
-            method: 'DELETE',
-        });
-        console.log(res);
-        if ([400, 500].includes(res.status)) {
-            const error = await res.json();
-            alert(`Error occurred: ${error.message}`)
-            return;
-        }
-
-        // props.onGiftsChange();
-    };
+    // const deleteGift = async (e: MouseEvent) => {
+    //     e.preventDefault();
+    //
+    //     if (!window.confirm(`Are you sure you want to remove gift name: ${props.giftsList.name}`)) {
+    //         return;
+    //     }
+    //     const res = await fetch(`http://localhost:3001/gift/${props.gift.id}`, {
+    //         method: 'DELETE',
+    //     });
+    //     console.log(res);
+    //     if ([400, 500].includes(res.status)) {
+    //         const error = await res.json();
+    //         alert(`Error occurred: ${error.message}`)
+    //         return;
+    //     }
+    //
+    //     props.onGiftsChange();
+    // };
    return ( <tr>
-        <td>
-            <Link to={`/gift/${props.gift.id}`}>
-                {props.gift.name}
-            </Link>
-        </td>
+        {/*<td>*/}
+        {/*    <Link to={`/gift/${props.giftsList.}`}>*/}
+        {/*        {props.giftsList}*/}
+        {/*    </Link>*/}
+        {/*</td>*/}
+           <th>{props.child.name}</th>
            <td>
-               {props.gift.count}
+               {props.child.giftId}
            </td>
         <td>
-            <a href="#" onClick={deleteGift}>🗑</a>
+            {/*<a href="#" onClick={deleteGift}>🗑</a>*/}
         </td>
     </tr>
    )
