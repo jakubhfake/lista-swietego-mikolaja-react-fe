@@ -14,8 +14,6 @@ export const ChildrenList = () => {
         setData(await res.json());
     };
 
-
-
     useEffect(() => {
         refreshChildren();
     }, [])
