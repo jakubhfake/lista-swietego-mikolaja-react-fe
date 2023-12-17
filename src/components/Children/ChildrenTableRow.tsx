@@ -41,6 +41,7 @@ export const ChildrenTableRow = (props: Props) => {
                <ChildGiftSelect
                    giftList={props.giftsList}
                    selectedId={props.child.giftId}
+                   childId={props.child.id as string}
                />
            </td>
         <td>
