@@ -4,14 +4,14 @@ import {Link} from "react-router-dom";
 
 
 interface Props {
-    child: ChildEntity ;
+    child: ChildEntity;
     giftsList: GiftEntity[];
     // onGiftsChange: () => void;
 }
 
 // @ToDo Add useState for deleting child
 export const ChildrenTableRow = (props: Props) => {
-    // const deleteGift = async (e: MouseEvent) => {
+    // const deleteChild = async (e: MouseEvent) => {
     //     e.preventDefault();
     //
     //     if (!window.confirm(`Are you sure you want to remove gift name: ${props.giftsList.name}`)) {
@@ -40,7 +40,7 @@ export const ChildrenTableRow = (props: Props) => {
                {props.child.giftId}
            </td>
         <td>
-            {/*<a href="#" onClick={deleteGift}>🗑</a>*/}
+            {/*<a href="#" onClick={deleteChild}>🗑</a>*/}
         </td>
     </tr>
    )
