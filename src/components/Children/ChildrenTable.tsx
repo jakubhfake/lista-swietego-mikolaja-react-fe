@@ -13,7 +13,7 @@ export const ChildrenTable = (props: Props) => {
             <tr>
                 <th>Name</th>
                 <th>Gift</th>
-                <th>Action</th>
+                {/*<th>Action</th>*/}
             </tr>
         </thead>
        <tbody>

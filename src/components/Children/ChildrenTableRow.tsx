@@ -1,6 +1,7 @@
 import React, {MouseEvent} from "react";
 import {ChildEntity, GiftEntity } from "types";
 import {Link} from "react-router-dom";
+import {ChildGiftSelect} from "./ChildGiftSelect";
 
 
 interface Props {
@@ -37,7 +38,10 @@ export const ChildrenTableRow = (props: Props) => {
         {/*</td>*/}
            <th>{props.child.name}</th>
            <td>
-               {props.child.giftId}
+               <ChildGiftSelect
+                   giftList={props.giftsList}
+                   selectedId={props.child.giftId}
+               />
            </td>
         <td>
             {/*<a href="#" onClick={deleteChild}>🗑</a>*/}
